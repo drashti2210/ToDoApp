@@ -1,12 +1,17 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const localStorage = require('localStorage');
+const hbs = require('hbs');
+const path = require('path')
+
 const port = process.env.PORT || 3000
 
 const app = express();
 
-app.set('view engine', 'ejs');
+const viewPath = path.join(__dirname,'./views');
+app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('views', viewPath)
 
 app.post('/addtask', function (req, res) {
     let tasks = localStorage.getItem("todos");
@@ -30,7 +35,7 @@ app.post('/addtask', function (req, res) {
     else {
         console.log("Already added");
     }
-    res.redirect("/");
+    res.redirect('/');
 });
 
 app.post("/donetask", function (req, res) {

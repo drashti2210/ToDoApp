@@ -49,33 +49,34 @@
             <h2> Added Task </h2>
             <hr>
             <div class="row container-fluid">
-                <% for( var i=0; i < task.length; i++){ %>
-                    <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h6 class="card-title">
-                                <%= task[i] %>
-                            </h6>
-                            <button type="submit" class="btn btn-primary" formaction="/donetask" name="check1"
-                                value="<%= task[i] %>"> Mark Completed </button>
-                        </div>
+                {{#each task}}
+                <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            {{this}}
+                        </h6>
+                        <button type="submit" class="btn btn-primary" formaction="/donetask" name="check1"
+                            value="{{this}}"> Mark Completed </button>
                     </div>
-                    <% } %>
+                </div>
+                {{/each}}
             </div>
-            
+
             <hr>
-            <h2> Completed task </h2><hr>
+            <h2> Completed task </h2>
+            <hr>
             <div class="row container-fluid">
-                <% for( var i=0; i < completed.length; i++){ %>
-                    <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h6 class="card-title">
-                                <%= completed[i] %>
-                            </h6>
-                            <button type="submit" class="btn btn-danger" formaction="/deletetask" name="check"
-                                value="<%= completed[i] %>">Delete</button>
-                        </div>
+                {{#each completed}}
+                <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            {{this}}
+                        </h6>
+                        <button type="submit" class="btn btn-danger" formaction="/deletetask" name="check"
+                            value="{{this}}">Delete</button>
                     </div>
-                    <% } %>
+                </div>
+                {{/each}}
             </div>
             <hr>
         </form>
