@@ -57,6 +57,8 @@
                         </h6>
                         <button type="submit" class="btn btn-primary" formaction="/donetask" name="check1"
                             value="{{this}}"> Mark Completed </button>
+                        <button type="submit" class="btn btn-danger" formaction="/deletetask" name="check"
+                            value="{{this}}">Delete</button>
                     </div>
                 </div>
                 {{/each}}
@@ -72,8 +74,11 @@
                         <h6 class="card-title">
                             {{this}}
                         </h6>
+                        <button type="submit" class="btn btn-primary" formaction="/readdtask" name="newTsk"
+                            value="{{this}}"> MarkNotCompleted </button>
                         <button type="submit" class="btn btn-danger" formaction="/deletetask" name="check"
                             value="{{this}}">Delete</button>
+
                     </div>
                 </div>
                 {{/each}}
