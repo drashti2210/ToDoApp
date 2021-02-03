@@ -1,10 +1,10 @@
 const express = require('express')
 const Task = require('./models/task')
-const bodyParser = require('body-parser');
+
 const router = new express.Router()
 
-
 router.post('/tasks', async (req, res) => {
+    console.log(req.body)
     const task = new Task(req.body)
     console.log(req.body)
     try {
